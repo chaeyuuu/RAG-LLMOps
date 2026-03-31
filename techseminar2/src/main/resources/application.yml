@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: techseminar2
+  profiles:
+    active: local
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3
+      embedding:
+        model: nomic-embed-text
