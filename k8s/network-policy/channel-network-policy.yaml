@@ -1,0 +1,41 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: channel-network-policy
+  namespace: channel
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: channel
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: info
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+    ports:
+    - port: 80
+      protocol: TCP
+    - port: 443
+      protocol: TCP
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: channel
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: info
+  - ports:
+    - port: 53
+      protocol: UDP
+    - port: 53
+      protocol: TCP
