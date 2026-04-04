@@ -1,13 +1,26 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: techseminar2
   profiles:
     active: local
 
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+
   jpa:
     hibernate:
       ddl-auto: create
     show-sql: true
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 
   ai:
     ollama:
