@@ -1,6 +1,0 @@
-apiVersion: v2
-name: techseminar2
-description: 금융권 RAG 챗봇
-type: application
-version: 0.1.0
-appVersion: "1.0.0"
