@@ -42,7 +42,6 @@ out/
 
 ### .yml ###
 application-local.yml
-application-prod.yml
 docker-compose.yml
 
 *.class
