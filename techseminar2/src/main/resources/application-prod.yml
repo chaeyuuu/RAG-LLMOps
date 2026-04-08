@@ -15,7 +15,7 @@ spring:
       base-url: http://${OLLAMA_HOST}:11434
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
 
 pgvector:
   datasource:
